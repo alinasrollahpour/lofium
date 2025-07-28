@@ -1,0 +1,15 @@
+#frame {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  border: none;
+  margin: 0.5rem;
+}
+#left-bar {
+  border: none;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 30%;
+}

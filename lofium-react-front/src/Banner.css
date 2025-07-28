@@ -1,0 +1,18 @@
+#banner {
+  font-size: 2rem;
+  width: 12rem;
+  
+  display: inline-block;
+  border: none;
+  color : green;
+  font-weight: bold;
+}
+
+#banner-container {
+  width: auto;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
