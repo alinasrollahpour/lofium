@@ -1,7 +1,7 @@
 #banner {
   font-size: 2rem;
   width: 12rem;
-  
+  text-align: center;
   display: inline-block;
   border: none;
   color : green;

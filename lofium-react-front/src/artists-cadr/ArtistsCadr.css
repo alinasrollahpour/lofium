@@ -1,4 +1,17 @@
 #artists-cadr {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
+  width: 100%;
+}
+
+#cadr-title {
+  color: gray;
+  border: none;
+  border-bottom: 1px solid rgb(72, 72, 72);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: block;
+  text-align: center;
   width: 100%;
 }
