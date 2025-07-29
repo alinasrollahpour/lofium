@@ -10,7 +10,7 @@
   padding: 0px;
   border-style: solid; 
   overflow: hidden;
-  
+  border: none;
 }
 
 #root {

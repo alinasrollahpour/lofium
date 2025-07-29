@@ -13,7 +13,9 @@ function App() {
         <Banner/>
         <ArtistsCadr/>
       </div>
-      
+      <div id='middle-bar'>
+        <div id='albums-tab'></div>
+      </div>
     </div>
   )
 }

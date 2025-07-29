@@ -8,7 +8,7 @@ function ArtistsCadr () {
       <label id='cadr-title'>ARTISTS</label>
 
       <ul>
-        {artists.map( (artist, index) => <li><div>im: {artist}</div></li> )}
+        {artists.map( (artist) => <li key={artist}><ArtistButton name={artist}/></li> )}
       </ul>
     </div>
 }
