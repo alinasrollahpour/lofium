@@ -4,6 +4,7 @@ import './App.css'
 
 import Banner from './Banner'
 import ArtistsCadr from './artists-cadr/ArtistsCadr'
+import PlayBox from './play-box/PlayBox'
 
 function App() {
 
@@ -14,7 +15,9 @@ function App() {
         <ArtistsCadr/>
       </div>
       <div id='middle-bar'>
-        <div id='albums-tab'></div>
+        <PlayBox/>
+        <div id='albums-tab'></div> {/*can be replaced with songs-tab*/}
+        
       </div>
     </div>
   )
