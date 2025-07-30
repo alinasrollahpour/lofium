@@ -4,7 +4,8 @@
 #play-box {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   box-sizing: border-box;
   border-radius: 1rem;
   width: 100%;
@@ -12,7 +13,11 @@
   background-color: rgb(39, 64, 39);
 }
 #top {
+  width: calc(100% - 4rem);
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
+/* #current-time {
+  width: 16rem;
+} */
