@@ -25,7 +25,10 @@
   width: auto;
   flex-grow: 1;
 }
-#albums-tab {
+#middle-cadr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-grow: 1;
   height: 80%;
 }
