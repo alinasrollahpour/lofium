@@ -7,9 +7,11 @@
 }
 
 #cadr-title {
+  letter-spacing: 0.5rem;
+  margin-bottom: 1rem;
   color: gray;
   border: none;
-  border-bottom: 1px solid rgb(72, 72, 72);
+  /* border-bottom: 1px solid rgb(72, 72, 72); */
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   display: block;
