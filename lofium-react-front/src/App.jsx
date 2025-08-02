@@ -3,11 +3,14 @@ import { useState } from "react";
 import "./index.css";
 import "./App.css";
 
+import tree from "../data.js";
+
+import globalContext from "./Contextes.jsx";
+
 import Banner from "./Banner";
 import ArtistsCadr from "./artists-cadr/ArtistsCadr";
 import PlayBox from "./play-box/PlayBox";
 import ErrorBoundary from "./ErrorBoundary.jsx";
-
 import AlbumsCadr from "./albums-cadr/AlbumsCadr.jsx";
 
 function App() {
@@ -21,7 +24,7 @@ function App() {
   }
 
   return (
-    <ErrorBoundary>
+    <globalContext value={tree}>
       <div id="frame">
         <PlayBox />
 
@@ -36,21 +39,16 @@ function App() {
               chosenArtist={chosenArtist}
               chosenAlbum={chosenAlbum}
             >
-              {
-                /*can be 'AlbumsCadr' 'SongsCadr' or nothing*/
-                chosenArtist ? 
-                  <AlbumsCadr artistName={chosenArtist}/>
-                : 
-                  <label>Select an artist to see albums.</label>
-                
-              }
+              {chosenArtist ? (
+                <AlbumsCadr artistName={chosenArtist} />
+              ) : (
+                <label>Select an artist to see albums.</label>
+              )}
             </div>
           </div>
         </div>
-
-        
       </div>
-    </ErrorBoundary>
+    </globalContext>
   );
 }
 

@@ -1,4 +1,5 @@
-import express, { static } from 'express';
+//import express, { static } from 'express';
+import express from 'express';
 import { readdir } from 'fs';
 import { join } from 'path';
 
@@ -9,7 +10,7 @@ const app = express();
 app.get('/api/list-files/:artistName/:albumName', (req, res) => {
 
   let FOLDER_PATH = join(__dirname, 'public', req.params.artistName, req.params.albumName); 
-  
+
   readdir(FOLDER_PATH, (err, files) => {
     if (err) {
       return res.status(500).json({ error: 'Failed to read directory' });
@@ -19,7 +20,7 @@ app.get('/api/list-files/:artistName/:albumName', (req, res) => {
 });
 
 // Also serve static files from public
-app.use(static(join(__dirname, 'public')));
+//app.use(static(join(__dirname, 'public')));
 
 const PORT = 3001;
 app.listen(PORT, () => {

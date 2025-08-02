@@ -1,10 +1,5 @@
-let artists = [
-  'DaniSogen',
-  'Raimu',
-  'RUDE',
-]
 
-let albums = {
+let tree = {
   'DaniSogen' : [
     'A World of Illusion',
     'Hanagasumi',
@@ -21,4 +16,4 @@ let albums = {
   ],
 }
 
-export {artists, albums};
+export {tree};
