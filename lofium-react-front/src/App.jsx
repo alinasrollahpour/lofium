@@ -9,7 +9,6 @@ import PlayBox from "./play-box/PlayBox";
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
 import AlbumsCadr from "./albums-cadr/AlbumsCadr.jsx";
-import SongsCadr from "./songs-cadr/SongsCadr.jsx";
 
 function App() {
   const [chosenArtist, setChosenArtist] = useState(null);
@@ -25,7 +24,7 @@ function App() {
     <ErrorBoundary>
       <div id="frame">
         <PlayBox />
-        
+
         <div id="up-area">
           <div id="left-bar">
             <Banner />
@@ -40,10 +39,7 @@ function App() {
               {
                 /*can be 'AlbumsCadr' 'SongsCadr' or nothing*/
                 chosenArtist ? 
-                  chosenAlbum ? 
-                    <SongsCadr />
-                  : 
-                    <AlbumsCadr />
+                  <AlbumsCadr artistName={chosenArtist}/>
                 : 
                   <label>Select an artist to see albums.</label>
                 

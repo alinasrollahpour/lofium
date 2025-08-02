@@ -1,0 +1,19 @@
+#each-album-container {
+  border-radius: 1rem;
+  margin-top: 0.5rem ;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 6rem;
+  background-color: rgb(21, 21, 21);
+}
+
+#album-cover {
+  margin-right: 1rem;
+  height: 100%;
+}
+
+#album-title {
+  font-size: 2rem;
+}
