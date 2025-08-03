@@ -1,11 +1,14 @@
-import { albums } from "../../data.js";
+import { useContext } from "react";
+import GlobalContext from "../Contextes.jsx";
 import "./AlbumsCadr.css";
 import EachAlbumPanel from "./EachAlbumPanel.jsx";
 
 
 function AlbumsCadr({ artistName }) {
-  let listOfAlbums = albums[artistName];
-  if (listOfAlbums === undefined) {
+  let currentContext = useContext(GlobalContext);
+
+  let setOfAlbums = currentContext[artistName];
+  if (setOfAlbums === undefined) {
     console.log();
     return <>{`Artist ${artistName} not found!`}</>;
   }
@@ -23,7 +26,7 @@ function AlbumsCadr({ artistName }) {
       </div>
 
       <ol>
-        {listOfAlbums.map((albumName, index) => (
+        {Object.keys(setOfAlbums).map((albumName, index) => (
           <li key={index}>
             <EachAlbumPanel artistName={artistName} albumName={albumName}/>
           </li>

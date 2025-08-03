@@ -1,10 +1,35 @@
-import './ArtistButton.css'
-function ArtistButton ({name, onClickArtist}) {
-  return <div id='container' onClick={()=>onClickArtist(name)}>
-    
-    <img id='prof' src={`artists/${name}/profile.jpg`} alt="artist`s profile" />
-    <label id='artist-name'>{name}</label>
-  </div>
+import { useContext } from "react";
+import GlobalContext from "../Contextes";
+import "./ArtistButton.css";
+
+function ArtistButton({ name }) {
+  const currentContext = useContext(GlobalContext);
+
+  console.log('current state of currentContext')
+  console.log(currentContext);
+
+  function onClickArtist(artistName) {
+    currentContext.setContextState((curr) => {
+      return {
+        ...curr,
+        chosenArtist: artistName,
+        chosenAlbum: null,
+        chosenSong: null,
+      };
+    });
+    console.log(`Artist ${artistName} has been selected!`);
+  }
+
+  return (
+    <div id="container" onClick={() => onClickArtist(name)}>
+      <img
+        id="prof"
+        src={`artists/${name}/profile.jpg`}
+        alt="artist`s profile"
+      />
+      <label id="artist-name">{name}</label>
+    </div>
+  );
 }
 
 export default ArtistButton;
