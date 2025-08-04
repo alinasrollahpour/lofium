@@ -4,7 +4,7 @@
 import "./EachAlbumPanel.css";
 import {useContext} from "react";
 import GlobalContext from "../Contextes.jsx";
-
+import EachSong from "./EachSong.jsx";
 
 function EachAlbumPanel({artistName, albumName}) {
   const {contextState} = useContext(GlobalContext);
@@ -22,7 +22,9 @@ function EachAlbumPanel({artistName, albumName}) {
       <ol id="songs-list">
         {
           contextState.treeState[artistName][albumName].map(
-          (song, index) => <li key={index}>#{index}: {song}</li>)
+          (song, index) => <li key={index}>
+            <EachSong artistName={artistName} albumName={albumName} songName={song} index={index} />
+          </li>)
         }
       </ol>
     </div>

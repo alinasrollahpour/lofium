@@ -12,6 +12,7 @@ import ArtistsCadr from "./artists-cadr/ArtistsCadr";
 import PlayBox from "./play-box/PlayBox";
 import ErrorBoundary from "./ErrorBoundary.jsx";
 import AlbumsCadr from "./albums-cadr/AlbumsCadr.jsx";
+import PlayBoxDemo from "./play-box/PlayBoxDemo.jsx";
 
 const PORT = 3001;
 
@@ -60,7 +61,8 @@ function App() {
   return (
     <GlobalContext value={{contextState, setContextState}}>
       <div id="frame">
-        <PlayBox/>
+        {/*<PlayBox/>*/}
+        <PlayBoxDemo/>
         <div id="up-area">
           <div id="left-bar">
             <Banner/>

@@ -1,6 +1,19 @@
+.scroll-dark::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll-dark::-webkit-scrollbar-track {
+  background: #111;
+}
+.scroll-dark::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 6px;
+  border: 1px solid #222;
+}
+
 #albums-cadr {
+  padding-right: 0.5rem;
   flex-shrink: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: relative;
   border-radius: 1rem;
   height: 100%;

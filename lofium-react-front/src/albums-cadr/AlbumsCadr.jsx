@@ -13,7 +13,7 @@ function AlbumsCadr({ artistName }) {
   }
 
   return (
-    <div id="albums-cadr">
+    <div id="albums-cadr" className="scroll-dark">
       <div id="scrolling-container">
         <div id="artist-banner">
           <label id="artist-title">{artistName}</label>
