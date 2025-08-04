@@ -1,4 +1,12 @@
-#each-album-container {
+#each-album-total {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+#album-banner-container {
   border-radius: 1rem;
   margin-top: 0.5rem ;
   display: flex;

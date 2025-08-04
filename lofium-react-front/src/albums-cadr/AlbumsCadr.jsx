@@ -14,23 +14,25 @@ function AlbumsCadr({ artistName }) {
 
   return (
     <div id="albums-cadr">
-      <div id="artist-banner">
-        <label id="artist-title">{artistName}</label>
-        <div id="dimmer" />
-        <img
-          id="banner-img"
-          src={`artists/${artistName}/profile.jpg`}
-          alt="artist-banner"
-        ></img>
-      </div>
+      <div id="scrolling-container">
+        <div id="artist-banner">
+          <label id="artist-title">{artistName}</label>
+          <div id="dimmer" />
+          <img
+            id="banner-img"
+            src={`artists/${artistName}/profile.jpg`}
+            alt="artist-banner"
+          ></img>
+        </div>
 
-      <ol>
-        {Object.keys(setOfAlbums).map((albumName, index) => (
-          <li key={index}>
-            <EachAlbumPanel artistName={artistName} albumName={albumName}/>
-          </li>
-        ))}
-      </ol>
+        <ol id="list-of-albums">
+          {Object.keys(setOfAlbums).map((albumName, index) => (
+            <li key={index}>
+              <EachAlbumPanel artistName={artistName} albumName={albumName}/>
+            </li>
+          ))}
+        </ol>
+      </div>
     </div>
   );
 }
