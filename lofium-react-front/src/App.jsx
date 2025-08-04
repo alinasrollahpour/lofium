@@ -32,12 +32,15 @@ function App() {
         for (const album in contextState.treeState[artist]) {
           //to fetch /artist/album
           try {
-            let fetchedSongs = await fetch(
+            let res = await fetch(
               `http://localhost:${PORT}/api/list-files/${artist}/${album}`
             )
-            console.log(`just fetched ${artist}/${album}, the songs: ${fetchedSongs}`);
+            if(!res.ok) { throw new Error(`Unable to fetch songs, http ${res.status}`); }
+
+            let {files} = await res.json();
+            console.log(`just fetched ${artist}/${album}, the response: ${files}`);
             //add fetchedSongs to new tree
-            songsIncludedTree[artist][album] = fetchedSongs;
+            songsIncludedTree[artist][album] = files;
           } catch (err) {
             console.error('i failed to fetch songs from backend: ' + err);
           }

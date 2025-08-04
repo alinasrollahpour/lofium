@@ -7,7 +7,7 @@ import EachAlbumPanel from "./EachAlbumPanel.jsx";
 function AlbumsCadr({ artistName }) {
   let {contextState, setContextState} = useContext(GlobalContext);
 
-  let setOfAlbums = contextState.artistName;
+  let setOfAlbums = contextState.treeState[contextState.chosenArtist];
   if (setOfAlbums === undefined) {
     return <>{`Artist ${artistName} not found!`}</>;
   }

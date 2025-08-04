@@ -17,13 +17,16 @@ app.use(cors({
 // API route to get file names
 app.get('/api/list-files/:artistName/:albumName', (req, res) => {
 
-  let FOLDER_PATH = join(__dirname, 'public', req.params.artistName, req.params.albumName); 
+  console.log(`got GET req on: ${req.params.artistName}/${req.params.albumName}`);
+  let FOLDER_PATH = join(__dirname, '..', 'lofium-react-front', 'public','artists', req.params.artistName, req.params.albumName);
 
   readdir(FOLDER_PATH, (err, files) => {
     if (err) {
+      console.error(err);
       return res.status(500).json({ error: 'Failed to read directory' });
     }
-    res.json({ files });
+    console.log(files);
+    res.status(200).json({ files });
   });
 });
 
