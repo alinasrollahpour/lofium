@@ -2,9 +2,17 @@
 import express from 'express';
 import { readdir } from 'fs';
 import { join } from 'path';
+import cors from 'cors';
+
+const VITE_PORT = 5173;
 
 const app = express();
-// assuming foo is in public
+const __dirname = import.meta.dirname;
+
+app.use(cors({
+  origin: `http://localhost:${VITE_PORT}`,
+  // credentials: true // if you use cookies or sessions
+}));
 
 // API route to get file names
 app.get('/api/list-files/:artistName/:albumName', (req, res) => {

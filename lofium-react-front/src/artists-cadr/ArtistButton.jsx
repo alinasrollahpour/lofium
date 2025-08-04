@@ -5,9 +5,6 @@ import "./ArtistButton.css";
 function ArtistButton({ name }) {
   const currentContext = useContext(GlobalContext);
 
-  console.log('current state of currentContext')
-  console.log(currentContext);
-
   function onClickArtist(artistName) {
     currentContext.setContextState((curr) => {
       return {

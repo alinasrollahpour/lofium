@@ -1,18 +1,18 @@
 
 const tree = {
   'DaniSogen' : {
-    'A World of Illusion': {},
-    'Hanagasumi': {},
-    'The Traditions': {},
+    'A World of Illusion': [],
+    'Hanagasumi': [],
+    'The Traditions': [],
   },
   'Raimu' :{ 
-    'Nature': {},
-    'The Spirit Within': {},
-    'Wayfarers': {},
+    'Nature': [],
+    'The Spirit Within': [],
+    'Wayfarers': [],
   },
   'RUDE':{ 
-    'Forever Lotus': {},
-    'The Awakening': {},
+    'Forever Lotus': [],
+    'The Awakening': [],
   },
 }
 
