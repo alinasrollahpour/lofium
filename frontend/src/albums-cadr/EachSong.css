@@ -1,0 +1,18 @@
+#song-index {
+    color: gray;
+    width: 2rem;
+}
+#song-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background: none;
+    margin:0.1rem;
+    border-radius: 0.5rem;
+    margin-left: 0.25rem;
+    padding: 0.25rem;
+    padding-left: 0.5rem;
+}
+#song-container:hover {
+    background-color: rgba(120, 120, 120, 0.2);
+}

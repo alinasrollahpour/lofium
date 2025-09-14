@@ -1,0 +1,30 @@
+#container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 20px;
+  border: none;
+  background:none;
+  height: 10rem;
+  overflow: hidden;
+  margin: 0.0rem 0.5rem;
+  height: auto;
+}
+#container:hover {
+  background: rgb(66, 66, 66);
+}
+#container:active {
+  background: rgb(49, 61, 57);
+}
+#prof {
+  border-radius: 1000px;
+  height: 4rem;
+  width: 4rem;
+  border: none;
+  margin: 0.5rem;
+  margin-right: 1rem;
+}
+#artist-name {
+  color: white;
+
+}

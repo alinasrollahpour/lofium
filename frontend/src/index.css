@@ -1,0 +1,31 @@
+@import './styles/colors.css';
+
+* {
+  
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: ; */
+  font-style: normal;
+  margin: 0px;
+  padding: 0px;
+  border-style: solid; 
+  overflow: hidden;
+  border: none;
+}
+div {
+  display: flex;
+}
+#root {
+  border: none;
+}
+
+html, body {
+  border: none;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* If you want to prevent any scrollbars unless explicitly added */
+  margin: 0px;
+  padding: 0px;
+}
