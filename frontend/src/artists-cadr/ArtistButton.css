@@ -10,6 +10,9 @@
   margin: 0.0rem 0.5rem;
   height: auto;
 }
+#container.active {
+  background: rgb(49, 61, 57);
+}
 #container:hover {
   background: rgb(66, 66, 66);
 }

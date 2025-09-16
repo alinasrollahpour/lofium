@@ -1,12 +1,8 @@
 /* eslint-disable no-unused-vars */
-import {BrowserRouter as Router, Route, useParams} from 'react-router-dom'
-import {useContext, useEffect, useState} from "react";
+import {BrowserRouter as Router, Route, Routes, useParams} from 'react-router-dom'
+import {useEffect, useState} from "react";
 import "./index.css";
 import "./App.css";
-
-import {tree} from "../data.js";
-
-import GlobalContext from "./Contextes.jsx";
 
 import Banner from "./Banner";
 import ArtistsCadr from "./artists-cadr/ArtistsCadr";
@@ -20,18 +16,13 @@ const PORT = 3001;
 
 
 function App() {
-  // const [contextState, setContextState] = useState({
-  //   treeState: tree,
-  //   chosenArtist: null,
-  //   chosenAlbum: null,
-  //   playingSong: null,
-  //   areSongsLoaded: false
-  // });
 
   //we have two states for App.js
-  const[tree, setTree] = useState({});
+  const [tree, setTree] = useState({});
   const {artist, album, song} = useParams();
 
+  //log the tree
+  useEffect(() => console.dir(tree), [tree]);
   console.log(`fetched these params: ${artist}, ${album}, ${song}`);
   //just do Fetching songs one time
   useEffect(() => {
@@ -42,7 +33,6 @@ function App() {
       console.log('fetched this tree:');
       console.dir(data);
       setTree(data);
-
     }
 
     //call this function
@@ -51,29 +41,26 @@ function App() {
 
 
   return (
-    <Router>
-      <Route path='/:artist/:album/:song' element={
-        <div id="frame">
-          {/*<PlayBox/>*/}
-          <PlayBoxDemo/>
-          <div id="up-area">
-            <div id="left-bar">
-              <Banner/>
-              <ArtistsCadr/>
-            </div>
-            <div id="middle-bar">
-              <div id="middle-cadr">
-                {contextState.chosenArtist ? (
-                  <AlbumsCadr artistName={contextState.chosenArtist}/>
-                ) : (
-                  <label>Select an artist to see albums.</label>
-                )}
-              </div>
-            </div>
+    <div id="frame">
+      {/*<PlayBox/>*/}
+      <PlayBoxDemo/>
+      <div id="up-area">
+        <div id="left-bar">
+          <Banner/>
+          <ArtistsCadr tree={tree}/>
+        </div>
+        <div id="middle-bar">
+          <div id="middle-cadr">
+            {artist ? (
+              <AlbumsCadr artistName={artist} tree={tree}/>
+            ) : (
+              <label>Select an artist to see albums.</label>
+            )}
           </div>
         </div>
-      }/>
-    </Router>
+      </div>
+    </div>
+
   );
 }
 

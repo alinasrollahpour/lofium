@@ -1,13 +1,19 @@
-import {useContext} from "react";
-import GlobalContext from '../Contextes.jsx';
+import {useParams} from 'react-router-dom';
+import "./PlayBoxDemo.css"
+
+const backendDomain = import.meta.env.VITE_BACKEND_DOMAIN;
 
 function PlayBoxDemo() {
-  const {contextState : ctx} = useContext(GlobalContext);
+  const {artist, album, song} = useParams();
+
   return <div id="demo-container">
-    chosenArtist: null,
-    chosenAlbum: null,
-    playingSong: null,
-    <audio src={`/artists/${ctx.chosenArtist}/${ctx.chosenAlbum}/${ctx.playingSong}`}/>
+    {
+      (artist && album && song)?
+        <audio id="main-audio" controls src={`${backendDomain}/lib/${artist}/${album}/${song}`}/>
+        :
+        <p>Click a song to play it</p>
+    }
+
   </div>
 }
 

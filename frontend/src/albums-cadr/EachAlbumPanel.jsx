@@ -2,29 +2,36 @@
 //containing list of songs in it
 
 import "./EachAlbumPanel.css";
-import {useContext} from "react";
-import GlobalContext from "../Contextes.jsx";
+import {useParams} from "react-router-dom";
 import EachSong from "./EachSong.jsx";
 
-function EachAlbumPanel({artistName, albumName}) {
-  const {contextState} = useContext(GlobalContext);
-  //console.log(`making req to: /artists/${artistName}/${albumName}/cover.jpg`);
+const backendDomain = import.meta.env.VITE_BACKEND_DOMAIN;
+
+
+function EachAlbumPanel({artistName, albumName, tree}) {
+  //const {artist , album} = useParams();
   return (
     <div id="each-album-total">
       <div id="album-banner-container">
         <img
           id="album-cover"
-          src={`/artists/${artistName}/${albumName}/cover.jpg`}
+          src={`${backendDomain}/lib/${artistName}/${albumName}/cover.jpg`}
           alt="album-cover"
         ></img>
         <label id="album-title">{albumName}</label>
       </div>
       <ol id="songs-list">
         {
-          contextState.treeState[artistName][albumName].map(
-          (song, index) => <li key={index}>
-            <EachSong artistName={artistName} albumName={albumName} songName={song} index={index} />
-          </li>)
+          tree[artistName][albumName].map(
+            (song, index) => {
+              //if '.jpg' is not in song
+              if (!song.includes('.jpg')) {
+                return (<li key={index}>
+                  <EachSong artistName={artistName} albumName={albumName} songName={song} index={index}/>
+                </li>)
+              }
+            }
+          )
         }
       </ol>
     </div>

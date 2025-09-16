@@ -25,8 +25,29 @@ app.use(cors({
   origin: `http://localhost:${VITE_PORT}`,
   // credentials: true // if you use cookies or sessions
 }));
+console.log(artistsFolderPath)
 
-app.use('/lib', express.static(artistsFolderPath));
+// with these two lines (keep them exactly where the original line was, so ordering is unchanged):
+app.use('/lib', (req, res, next) => {
+  // prevent caches and revalidation from client/proxy
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  next();
+});
+
+app.use('/lib', express.static(artistsFolderPath, {
+  etag: false,
+  lastModified: false,
+  cacheControl: false,
+  setHeaders(res /*, path, stat */) {
+    // make sure express/send doesn't add caching headers back
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+  }
+}));
+
 
 app.get('/',
   (req, res) => {
